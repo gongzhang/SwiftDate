@@ -17,8 +17,6 @@ let package = Package(
             name: "SwiftDate",
             dependencies: [],
 			resources: [
-				.copy("Formatters/RelativeFormatter/langs"),
-                .process("Resources")
 			]),
         .testTarget(
             name: "SwiftDateTests",
