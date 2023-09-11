@@ -209,7 +209,7 @@ public extension Calendar.Component {
 		return l
 	}
 
-	internal var nsCalendarUnit: NSCalendar.Unit {
+	internal var nsCalendarUnit: NSCalendar.Unit? {
 		switch self {
 		case .era: return NSCalendar.Unit.era
 		case .year: return NSCalendar.Unit.year
@@ -227,7 +227,8 @@ public extension Calendar.Component {
 		case .nanosecond: return NSCalendar.Unit.nanosecond
 		case .calendar: return NSCalendar.Unit.calendar
 		case .timeZone: return NSCalendar.Unit.timeZone
-		@unknown default:
+        case .isLeapMonth: return nil
+        @unknown default:
 			fatalError("Unsupported type \(self)")
 		}
 	}

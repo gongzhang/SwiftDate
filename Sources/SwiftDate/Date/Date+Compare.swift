@@ -181,6 +181,8 @@ extension Date {
             return dateComponents.nanosecond
         case .calendar, .timeZone:
             return nil
+        case .isLeapMonth:
+            return nil
         @unknown default:
             assert(false, "unknown date component")
         }

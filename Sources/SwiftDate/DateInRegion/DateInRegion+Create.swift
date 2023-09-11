@@ -156,7 +156,8 @@ public extension DateInRegion {
 	func dateAtStartOf(_ unit: Calendar.Component) -> DateInRegion {
 		var start: NSDate?
 		var interval: TimeInterval = 0
-		guard (region.calendar as NSCalendar).range(of: unit.nsCalendarUnit, start: &start, interval: &interval, for: date),
+        guard let nsCalendarUnit = unit.nsCalendarUnit,
+            (region.calendar as NSCalendar).range(of: nsCalendarUnit, start: &start, interval: &interval, for: date),
 			let startDate = start else {
 				return self
 		}
@@ -183,7 +184,8 @@ public extension DateInRegion {
 		// RangeOfUnit returns the start of the next unit; we will subtract one thousandth of a second
 		var start: NSDate?
 		var interval: TimeInterval = 0
-		guard (self.region.calendar as NSCalendar).range(of: unit.nsCalendarUnit, start: &start, interval: &interval, for: date),
+        guard let nsCalendarUnit = unit.nsCalendarUnit,
+            (self.region.calendar as NSCalendar).range(of: nsCalendarUnit, start: &start, interval: &interval, for: date),
 		let startDate = start else {
 			return self
 		}
